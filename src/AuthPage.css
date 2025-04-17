@@ -1,0 +1,136 @@
+/* src/AuthPage.css */
+
+.auth-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .auth-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+  
+  .auth-form h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #00ffff;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .auth-form input::placeholder {
+    color: #ccc;
+  }
+  
+  .auth-form input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #00ffff;
+  }
+  
+  .auth-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00ffff;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .auth-form button:hover {
+    background-color: #00d4ff;
+    transform: translateY(-2px);
+  }
+  
+  .auth-form .google-btn {
+    background-color: #db4437;
+    color: white;
+  }
+  
+  .auth-form .google-btn:hover {
+    background-color: #c33d2f;
+  }
+  
+  .auth-form .toggle-text {
+    text-align: center;
+    margin-top: 1rem;
+    color: #00ffff;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .auth-form .toggle-text:hover {
+    text-decoration: underline;
+  }
+  
+  .welcome-box {
+    text-align: center;
+    color: white;
+  }
+  
+  .welcome-box h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #00ffff;
+  }
+  
+  .welcome-box button {
+    background-color: #ff416c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .welcome-box button:hover {
+    background-color: #ff2a5a;
+    transform: translateY(-2px);
+  }
+  .google-button {
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .google-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .google-logo {
+    width: 20px;
+    height: 20px;
+  }
+  
