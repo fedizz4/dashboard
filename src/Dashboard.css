@@ -670,3 +670,259 @@
       margin-top: 15px;
     }
   }
+  /* Ajouts spécifiques pour Prediction */
+.recommendations-section {
+  margin-top: 30px;
+}
+
+.recommendation-card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #00ffff;
+  margin-bottom: 15px;
+}
+
+.recommendation-card p {
+  margin: 0 0 15px 0;
+}
+
+.prediction-model {
+  font-size: 0.9rem;
+  color: rgba(0, 255, 255, 0.7);
+  margin-top: 10px;
+}
+/* Styles spécifiques Bien-être */
+.wellbeing-chart {
+  background: conic-gradient(
+    #00ff88 0% 40%,
+    #00ffff 40% 70%,
+    #ff416c 70% 100%
+  );
+}
+
+.kpi-trend.stable {
+  color: #ffcc00;
+}
+
+.recommendations-section.wellbeing {
+  background: rgba(0, 255, 136, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.recommendation-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 3px solid #00ff88;
+}
+
+.recommendation-card h3 {
+  color: #00ff88;
+  margin-top: 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.line-chart {
+  background: linear-gradient(180deg, #0f2027, #203a43);
+  position: relative;
+}
+
+.line-chart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M10,40 L30,30 L50,35 L70,20 L90,25" stroke="%2300ff88" fill="none" stroke-width="2"/></svg>') no-repeat;
+  background-size: 100% 100%;
+}
+/* Animations futuristes */
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.8),
+                0 0 10px rgba(0, 255, 255, 0.6),
+                0 0 15px rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1),
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(0, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.8),
+                0 0 10px rgba(0, 255, 255, 0.6),
+                0 0 15px rgba(0, 255, 255, 0.4);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.tab-transition {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.active-tab-effect {
+  animation: neonGlow 1.5s ease-in-out, pulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.active-tab-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+              rgba(0, 255, 255, 0.1) 0%, 
+              rgba(0, 255, 255, 0.3) 50%, 
+              rgba(0, 255, 255, 0.1) 100%);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.tab-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ffff;
+  pointer-events: none;
+  z-index: 100;
+  animation: particleFly 1s ease-out forwards;
+  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+}
+
+@keyframes particleFly {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+    width: 2px;
+    height: 2px;
+  }
+}
+/* Employee Selection Section */
+.employee-selection-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.employee-selector-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.employee-list-scrollable {
+  flex: 1;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.employee-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.employee-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.employee-card.selected {
+  background: rgba(100, 200, 255, 0.1);
+  border-left: 3px solid #00ff88;
+}
+
+.employee-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #00ff88;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.employee-info {
+  flex: 1;
+}
+
+.employee-wellbeing-score {
+  width: 120px;
+}
+
+.score-bar {
+  height: 4px;
+  background: #00ff88;
+  margin-top: 0.3rem;
+  border-radius: 2px;
+}
+
+.score-bar.elevé { background: #ff6b6b; }
+.score-bar.modéré { background: #ffcc5c; }
+
+.employee-detail-card {
+  flex: 0 0 300px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border-top: 2px solid #00ff88;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}

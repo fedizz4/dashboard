@@ -1,0 +1,98 @@
+/* Styles spécifiques à Prediction.jsx */
+.prediction-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 0.9rem;
+  }
+  
+  .predicted-value {
+    color: #00ffff;
+    font-weight: bold;
+  }
+  
+  .prediction-arrow {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .prediction-chart {
+    background: linear-gradient(90deg, #1E40AF, #3B82F6);
+    position: relative;
+  }
+  
+  .prediction-chart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M0,50 L20,30 L40,40 L60,10 L80,20 L100,0" stroke="white" fill="none" stroke-width="1"/></svg>') no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .scenario-bars {
+    display: flex;
+    height: 200px;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .scenario {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+  }
+  
+  .scenario::after {
+    content: attr(class);
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .optimal { background: linear-gradient(to top, #10B981, #34D399); }
+  .expected { background: linear-gradient(to top, #3B82F6, #60A5FA); }
+  .minimal { background: linear-gradient(to top, #EF4444, #F87171); }
+  
+  .recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .recommendation-card {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    position: relative;
+  }
+  
+  .recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .rec-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ffff;
+  }
+  
+  .rec-priority {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .rec-priority.high {
+    background: #EF4444;
+    box-shadow: 0 0 5px #EF4444;
+  }

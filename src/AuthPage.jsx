@@ -16,18 +16,17 @@ export default function AuthPage() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
-  const navigate = useNavigate(); // Hook pour la navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      // Redirection si l'utilisateur est connecté
       if (currentUser) {
-        navigate("/dashboard"); // Redirige vers la page principale
+        navigate("/dashboard");
       }
     });
     return () => unsubscribe();
-  }, [navigate]); // Ajoutez navigate aux dépendances
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +36,6 @@ export default function AuthPage() {
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
       }
-      // La redirection se fera automatiquement via onAuthStateChanged
     } catch (err) {
       alert("Erreur : " + err.message);
     }
@@ -45,13 +43,11 @@ export default function AuthPage() {
 
   const handleLogout = async () => {
     await signOut(auth);
-    // Pas besoin de redirection ici car onAuthStateChanged gérera le state
   };
 
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      // La redirection se fera automatiquement via onAuthStateChanged
     } catch (error) {
       alert("Erreur Google Sign-in : " + error.message);
     }
@@ -60,12 +56,12 @@ export default function AuthPage() {
   return (
     <div className="auth-container">
       {user ? (
-        <>
+        <div className="user-section">
           <h2 className="welcome-text">Bienvenue, {user.email}</h2>
           <button onClick={handleLogout} className="logout-button">
             Déconnexion
           </button>
-        </>
+        </div>
       ) : (
         <form onSubmit={handleSubmit} className="auth-form">
           <h2 className="form-title">

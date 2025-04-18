@@ -1,12 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import AuthPage from './AuthPage';
-import Dashboard from './Dashboard.jsx';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { auth } from './firebase/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react';
-import './App.css'; // Créez ce fichier pour les styles globaux
+import Dashboard from './Dashboard';
+import AuthPage from './AuthPage';
+import Prediction from './Prediction';
+import ImportCSV from './ImportCSV';
+import EmployeesTable from './EmployeesTable';
+import Wellbeing from './Wellbeing';
+import './App.css';
 
-function App() {
+const AppRoutes = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -19,33 +23,44 @@ function App() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="loading-screen">
-        <div className="loading-spinner"></div>
-        <p>Chargement en cours...</p>
-      </div>
-    );
+    return <div className="loading-screen">Chargement...</div>;
   }
 
   return (
     <Router>
       <Routes>
+        {/* Route d'authentification */}
+        <Route path="/connexion" element={user ? <Navigate to="/dashboard" /> : <AuthPage />} />
+
+        {/* Route principale du dashboard avec sous-routes */}
         <Route 
-          path="/" 
-          element={user ? <Navigate to="/dashboard" /> : <AuthPage />} 
-        />
-        <Route 
-          path="/dashboard" 
-          element={user ? <Dashboard /> : <Navigate to="/" />} 
-        />
-        {/* Route de secours pour les URLs inconnues */}
-        <Route 
-          path="*" 
-          element={<Navigate to={user ? "/dashboard" : "/"} />} 
-        />
+  path="/dashboard" 
+  element={
+    user ? (
+      <Dashboard>
+        <Outlet /> {/* This will render the nested routes */}
+      </Dashboard>
+    ) : (
+      <Navigate to="/connexion" />
+    )
+  }
+>
+  <Route path="employees" element={<EmployeesTable />} />
+  <Route path="import-csv" element={<ImportCSV />} />
+  <Route path="wellbeing" element={<Wellbeing />} />
+  <Route path="predictions" element={<Prediction />} /> {/* Move predictions here */}
+</Route>
+
+        
+
+        {/* Redirections par défaut */}
+        <Route path="/" element={<Navigate to={user ? "/dashboard" : "/connexion"} replace />} />
+        
+        {/* Route de fallback */}
+        <Route path="*" element={<div className="not-found">404 - Page non trouvée</div>} />
       </Routes>
     </Router>
   );
-}
+};
 
-export default App;
+export default AppRoutes;
