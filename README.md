@@ -35,5 +35,5 @@ Un tableau de bord interactif pour visualiser et prédire les KPI RH (taux d'abs
 ## 📦 Installation  
 1. Cloner le dépôt :
 ```bash
-git clone https://github.com/votre-utilisateur/projet05-dashboard-rh.git
+git clone https://github.com/fedizz4/dashboard
 cd projet05-dashboard-rh
